@@ -23,6 +23,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 
+import org.tensorflow.lite.examples.MainApplication;
 import org.tensorflow.lite.examples.R;
 import org.tensorflow.lite.examples.detection.CertificationFragment;
 import org.tensorflow.lite.examples.detection.DetectorActivity;
@@ -197,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
     private void cameraIconToCertification(){
         Log.d("test current GPS","경도는 " + lat2 + " ,위도는 " + lon2);
 
-        for(int i = 0; i < CertificationFragment.listCertification.size(); i++){
+        for(int i = 0; i < CertificationFragment.listLat.size(); i++){
             double lat1 = CertificationFragment.listLat.get(i);
             double lon1 = CertificationFragment.listLong.get(i);
 
@@ -207,7 +208,7 @@ public class MainActivity extends AppCompatActivity {
             // GPS 계산 시 인증 가능 범위, 단위 : meter (안드로이드 gps는 기본 20m 오차)
             int DISTANCE_ERROR_RANGE = 50;
             if (Integer.parseInt(getDistance(lat1, lon1, lat2, lon2)) < DISTANCE_ERROR_RANGE) {
-                if (CertificationFragment.listCertification.get(i).equals("인증 완료")) {
+                if (MainApplication.cerList.get(i)) {
                     Toast.makeText(getApplicationContext(), "이미 인증 완료된 스팟입니다", Toast.LENGTH_SHORT).show();
                     loadFragment(new failedFragment());
                     textView.setText("인증하기");

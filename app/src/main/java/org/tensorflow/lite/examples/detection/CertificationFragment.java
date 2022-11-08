@@ -1,6 +1,7 @@
 package org.tensorflow.lite.examples.detection;
 
 
+import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,8 +15,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
+import org.tensorflow.lite.examples.MainApplication;
 import org.tensorflow.lite.examples.R;
 
 public class CertificationFragment extends Fragment {
@@ -24,14 +28,7 @@ public class CertificationFragment extends Fragment {
     static List<String> listTitle = Arrays.asList("정문", "안내문", "북문", "테크노문", "석탑", "백호관");
 
     // 인증대상의 인증여부 리스트
-    public static List<String> listCertification = Arrays.asList(
-            "인증 미완료",
-            "인증 미완료",
-            "인증 미완료",
-            "인증 미완료",
-            "인증 미완료",
-            "인증 미완료"
-    );
+    public List<String> listCertification = new ArrayList<>();
 
     // 인증대상의 사진 리스트
     static List<Integer> listResId = Arrays.asList(
@@ -75,6 +72,15 @@ public class CertificationFragment extends Fragment {
 
     // RecyclerView와 연결할 어댑터
     public RecyclerAdapter adapter;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        for(boolean i : MainApplication.cerList) {
+            listCertification.add(i ? "인증 완료" : "인증 미완료");
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

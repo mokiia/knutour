@@ -9,6 +9,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import org.tensorflow.lite.examples.MainApplication;
 import org.tensorflow.lite.examples.R;
 
 public class ResultActivity extends AppCompatActivity {
@@ -36,16 +41,16 @@ public class ResultActivity extends AppCompatActivity {
         ImageView iv = findViewById(R.id.resultImage);
         iv.setImageBitmap(bmp);
 
-        yesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        yesButton.setOnClickListener(view -> {
+            DatabaseReference ref = FirebaseDatabase.getInstance().getReference(MainApplication.user.getUid()).child(MainApplication.nameArray[checked_target]);
+            ref.setValue(true).addOnSuccessListener(aVoid -> {
                 Intent intent = new Intent(getApplicationContext(), org.tensorflow.lite.examples.Main.MainActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("d_flag", 1); // 메인으로 넘겨줄 d_flag(detect flag)를 1로 설정, 카메라 인증 완료임을 의미
                 intent.putExtra("checked_target", checked_target); // 인증 완료된 타겟을 메인으로 넘겨줌
                 startActivity(intent);
                 overridePendingTransition(0, 0);
-            }
+            });
         });
 
         noButton.setOnClickListener(new View.OnClickListener() {

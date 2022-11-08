@@ -18,6 +18,7 @@ import androidx.core.app.ActivityCompat;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 
+import org.tensorflow.lite.examples.MainApplication;
 import org.tensorflow.lite.examples.R;
 
 public class DetailActivity extends AppCompatActivity {
@@ -30,7 +31,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView name;
     TextView information;
     Button certiButton;
-    public Integer target;
+    public int target;
 
     @Override
     public void onEnterAnimationComplete() {
@@ -79,7 +80,7 @@ public class DetailActivity extends AppCompatActivity {
 
         certiButton.setOnClickListener(view -> {
             // 클릭한 데이터의 인증여부 체크
-            if (CertificationFragment.listCertification.get(target).equals("인증 완료")) {
+            if (MainApplication.cerList.get(target)) {
                 Toast.makeText(getApplicationContext(), "이미 인증 완료된 스팟입니다", Toast.LENGTH_SHORT).show();
             }
             else {
