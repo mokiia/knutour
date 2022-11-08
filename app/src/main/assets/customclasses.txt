@@ -1,6 +1,4 @@
-front
-nine
-north
-tech
-tower
-west
+pond
+maingate
+3pagoda
+northgate

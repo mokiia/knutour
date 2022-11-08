@@ -206,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
             // 거리 100m 이내일시 그 인증대상을 타겟으로 설정후 ->
             // DetectorActivity 호출 (타겟의 인덱스정보 (getAdapterPosition()) 를 넘겨줌)
             // GPS 계산 시 인증 가능 범위, 단위 : meter (안드로이드 gps는 기본 20m 오차)
-            int DISTANCE_ERROR_RANGE = 50;
+            int DISTANCE_ERROR_RANGE = 50000000;
             if (Integer.parseInt(getDistance(lat1, lon1, lat2, lon2)) < DISTANCE_ERROR_RANGE) {
                 if (MainApplication.cerList.get(i)) {
                     Toast.makeText(getApplicationContext(), "이미 인증 완료된 스팟입니다", Toast.LENGTH_SHORT).show();

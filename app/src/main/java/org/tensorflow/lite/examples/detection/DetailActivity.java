@@ -26,7 +26,7 @@ public class DetailActivity extends AppCompatActivity {
     private double lat2;
     private double lon2;
 
-    private final Integer DISTANCE_ERROR_RANGE = 50; // GPS 계산 시 인증 가능 범위, 단위 : meter (안드로이드 gps는 기본 20m 오차)
+    private final Integer DISTANCE_ERROR_RANGE = 50000000; // GPS 계산 시 인증 가능 범위, 단위 : meter (안드로이드 gps는 기본 20m 오차)
     ImageView image;
     TextView name;
     TextView information;

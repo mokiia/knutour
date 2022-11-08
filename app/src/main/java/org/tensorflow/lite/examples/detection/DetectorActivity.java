@@ -95,7 +95,7 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
     private BorderedText borderedText;
 
-    private final Float MIN_CONFIDENCE = 0.85f; // 타겟 인증의 최소 Confidence값, 카메라 객체 인식 시 나타나는 %와 다름
+    private final Float MIN_CONFIDENCE = 0.3f; // 타겟 인증의 최소 Confidence값, 카메라 객체 인식 시 나타나는 %와 다름
 
     public Integer target;
 
@@ -281,7 +281,9 @@ public class DetectorActivity extends CameraActivity implements OnImageAvailable
 
                     result.setLocation(location);
                     mappedRecognitions.add(result);
-                    if(target != -1 && result.getConfidence() > MIN_CONFIDENCE && result.getDetectedClass() == target) {
+                    if(target != -1 && result.getConfidence() > MIN_CONFIDENCE
+                            && result.getDetectedClass() == target
+                    ) {
                         // DetectedClass가 target인 경우 + 결과의 Confidence값이 MIN_CONFIDENCE보다 높은 경우 인증 완료
                         Log.d("detect","target is "+ target.toString() + "gettitle : " + result.getTitle() + " confi : " + result.getConfidence());
 

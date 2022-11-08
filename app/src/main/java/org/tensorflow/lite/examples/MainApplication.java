@@ -20,12 +20,10 @@ public class MainApplication extends Application {
     public static FirebaseUser user;
     public static List<Boolean> cerList = new ArrayList<>();
     public static String[] nameArray = {
-        "front",
-        "nine",
-        "north",
-        "tech",
-        "tower",
-        "west"
+        "pond",
+        "maingate",
+        "3pagoda",
+        "northgate"
     };
     public static Map<String, Integer> nameIndexMap = new HashMap<>();
 
