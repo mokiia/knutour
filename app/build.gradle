@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    compileSdk 33
+    compileSdk 32
     buildFeatures {
         viewBinding = true
     }
@@ -12,7 +12,7 @@ android {
     defaultConfig {
         applicationId 'org.tensorflow.lite.examples'
         minSdk 26
-        targetSdk 33
+        targetSdk 32
         versionCode 2
         versionName "1.0.1"
 
@@ -36,8 +36,8 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
-    implementation 'org.tensorflow:tensorflow-lite:2.4.0'
-    implementation 'org.tensorflow:tensorflow-lite-gpu:2.4.0'
+    implementation 'org.tensorflow:tensorflow-lite:2.10.0'
+    implementation 'org.tensorflow:tensorflow-lite-gpu:2.10.0'
     implementation 'androidx.cardview:cardview:1.0.0'
 
     implementation 'androidx.appcompat:appcompat:1.4.2'

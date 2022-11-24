@@ -38,10 +38,10 @@ public class CertificationFragment extends Fragment {
 
     // 인증대상의 사진 리스트
     static List<Integer> listResId = Arrays.asList(
-            R.drawable.pond,
-            R.drawable.main_gate,
-            R.drawable.three_pagoda,
-            R.drawable.north_gate
+            R.drawable.caret,
+            R.drawable.caret,
+            R.drawable.caret,
+            R.drawable.caret
 //            R.drawable.tower,
 //            R.drawable.west
     );
